@@ -2,13 +2,16 @@ let request_frame=window.requestAnimationFrame;
 
 let canvas=0;
 let canvas_context=0;
-
-let dt=1000/30; /* Physics ticks per second. */
+/* Physics ticks per second. */
+let dt=1000/30;
 let last_time=0;
 let frame_time=0;
 let elapsed_time=0.0;
 let state=1;
-
+/******************************************************************************
+* Where everything starts. Called when the browser feels like it.
+* Run other initialization methods here.
+******************************************************************************/
 let mu_init=function()
 {
 	canvas=document.getElementById("mu_canvas");
@@ -16,7 +19,10 @@ let mu_init=function()
 	mu_run();
 };
 window.onload=mu_init;
-
+/******************************************************************************
+* Main Game Loop. Physics timesteps run at a fixed rate delta. Rendering
+* runs as fast as it can.
+******************************************************************************/
 let mu_run=function(cur_time)
 {
 	/* Starts as NaN, make it dt, so we guarantee a physics tick. -pyg */
@@ -35,12 +41,16 @@ let mu_run=function(cur_time)
 	last_time=cur_time;
 	request_frame(mu_run);
 };
-
+/******************************************************************************
+* Where all the logic and physics begins.
+******************************************************************************/
 let mu_tick=function(state)
 {
 
 };
-
+/******************************************************************************
+* Where all the drawing and rendering takes place.
+******************************************************************************/
 let mu_render=function(state)
 {
 	mu_window_on_resize(canvas);
