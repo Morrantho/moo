@@ -1,3 +1,5 @@
+let mu_sqrt=Math.sqrt;
+
 function mu_std_vec2_create(x,y)
 {
 	return {x:x,y:y};
@@ -41,6 +43,13 @@ function mu_std_vec2_div(v1,v2)
 function mu_std_vec2_divn(v,n)
 {
 	return {x:v.x/n,y:v.y/n};
+}
+
+function mu_std_vec2_dist(v1,v2)
+{
+	let diff=mu_std_vec2_sub(v1,v2);
+	let len=mu_std_vec2_mag(diff);
+	return mu_sqrt(len);
 }
 
 function mu_std_vec2_mag(v)

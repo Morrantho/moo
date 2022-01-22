@@ -17,10 +17,19 @@ function mu_test()
 	let point2=mu_ecs_entity_point_static_create(200,200,12);
 	let point3=mu_ecs_entity_point_static_create(400,400,8);
 
-	let plane1=mu_ecs_entity_plane_create(point1,point2,4);
-	let plane2=mu_ecs_entity_plane_create(point2,point3,2);
+	let plane1=mu_ecs_entity_plane_create(point1,point2,0,4);
+	let plane2=mu_ecs_entity_plane_create(point2,point3,0,2);
 
-	let pointd1=mu_ecs_entity_point_dynamic_create(500,50,16);
+	let pointd1=mu_ecs_entity_point_dynamic_create(500,0,16);
+	let pointd2=mu_ecs_entity_point_dynamic_create(600,0,16);
+	let pointd3=mu_ecs_entity_point_dynamic_create(600,100,16);
+	let pointd4=mu_ecs_entity_point_dynamic_create(500,100,16);
+
+	let planed1=mu_ecs_entity_plane_create(pointd1,pointd2,0,4);
+	let planed2=mu_ecs_entity_plane_create(pointd2,pointd3,0,4);
+	let planed3=mu_ecs_entity_plane_create(pointd3,pointd4,0,4);
+	let planed4=mu_ecs_entity_plane_create(pointd4,pointd1,0,4);
+	let planed5=mu_ecs_entity_plane_create(pointd1,pointd3,0,4);
 }
 /******************************************************************************
 * Where everything starts. Called when the browser feels like it.
@@ -61,7 +70,7 @@ function mu_run(cur_time)
 ******************************************************************************/
 function mu_tick(mu_state)
 {
-	mu_ecs_tick(mu_state);
+	mu_ecs_think(MU_ECS_SYSTEM_TICK,mu_state);
 };
 /******************************************************************************
 * Where all the drawing and rendering takes place.
@@ -70,5 +79,5 @@ function mu_render(mu_state)
 {
 	mu_window_on_resize(mu_canvas);
 	mu_window_clear(mu_canvas,mu_canvas_context);
-	mu_ecs_render(mu_state,mu_canvas_context);
+	mu_ecs_think(MU_ECS_SYSTEM_RENDER,mu_state,mu_canvas_context);
 };

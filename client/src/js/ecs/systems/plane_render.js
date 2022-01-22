@@ -5,7 +5,7 @@ mu_ecs_system_create(MU_ECS_SYSTEM_RENDER,
 	1<<MU_ECS_COMPONENT_PLANE|
 	1<<MU_ECS_COMPONENT_RADIUS,
 		
-	fn:(state,context,entity)=>
+	fn:(state,entity,context)=>
 	{
 		let color=mu_ecs_component_get(entity,MU_ECS_COMPONENT_COLOR).color;
 		let plane=mu_ecs_component_get(entity,MU_ECS_COMPONENT_PLANE);

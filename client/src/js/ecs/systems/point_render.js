@@ -5,7 +5,7 @@ mu_ecs_system_create(MU_ECS_SYSTEM_RENDER,
 	1<<MU_ECS_COMPONENT_RADIUS|
 	1<<MU_ECS_COMPONENT_TRANSFORM,
 		
-	fn:(state,context,entity)=>
+	fn:(state,entity,context)=>
 	{
 		let color=mu_ecs_component_get(entity,MU_ECS_COMPONENT_COLOR).color;
 		let radius=mu_ecs_component_get(entity,MU_ECS_COMPONENT_RADIUS).radius;

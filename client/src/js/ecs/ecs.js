@@ -85,32 +85,18 @@ const mu_ecs_system_create=(sys_typ,obj)=>
 	console.log("mu_ecs_system_create: "+index+" "+sys_typ+" "+obj.mask);
 }
 /******************************************************************************
-* Iterates all TICK systems, and each entity within a system. If the entity
-* belongs to a system, the system's callback is fired, telling it to act on it.
+* Iterates all systems of the passed type, and each entity within a system.
+* If the entity belongs to a system, the system's callback is fired, telling it
+* to act on it.
 ******************************************************************************/
-const mu_ecs_tick=(state)=>
+const mu_ecs_think=(sys_typ,state,context)=>
 {
-	for(let i=0;i<mu_ecs_systems[0].length;i++)
+	for(let i=0;i<mu_ecs_systems[sys_typ].length;i++)
 	{
-		for(let j=0;j<mu_ecs_systems[0][i].entities.length;j++)
+		for(let j=0;j<mu_ecs_systems[sys_typ][i].entities.length;j++)
 		{
-			if(!mu_ecs_systems[0][i].entities[j]) continue;
-			mu_ecs_systems[0][i].fn(state,j);
+			if(!mu_ecs_systems[sys_typ][i].entities[j]) continue;
+			mu_ecs_systems[sys_typ][i].fn(state,j,context);
 		}
-	}
-}
-/******************************************************************************
-* Iterates all RENDER systems, and each entity within a system. If the entity
-* belongs to a system, the system's callback is fired, telling it to act on it.
-******************************************************************************/
-const mu_ecs_render=(state,context)=>
-{
-	for(let i=0;i<mu_ecs_systems[1].length;i++)
-	{
-		for(let j=0;j<mu_ecs_systems[1][i].entities.length;j++)
-		{
-			if(!mu_ecs_systems[1][i].entities[j]) continue;
-			mu_ecs_systems[1][i].fn(state,context,j);
-		}
-	}
+	}	
 }
