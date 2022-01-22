@@ -8,6 +8,8 @@
 </head>
 <body>
 	<canvas id="mu_canvas"></canvas>
+	<!-- std -->
+	<script src="../js/std/vec2.js"></script>
 	<!-- ECS -->
 	<script src="../js/ecs/ecs.js"></script>
 	<!-- Components -->
@@ -16,14 +18,15 @@
 	<script src="../js/ecs/components/plane.js"></script>
 	<script src="../js/ecs/components/poly.js"></script>
 	<script src="../js/ecs/components/radius.js"></script>
-	<script src="../js/ecs/components/size.js"></script>
 	<script src="../js/ecs/components/sprite.js"></script>
 	<script src="../js/ecs/components/transform.js"></script>
 	<!-- Entities -->
-	<script src="../js/ecs/entities/point.js"></script>
-	<script src="../js/ecs/entities/line.js"></script>
+	<script src="../js/ecs/entities/point_static.js"></script>
+	<script src="../js/ecs/entities/point_dynamic.js"></script>
+	<script src="../js/ecs/entities/plane.js"></script>
 	<!-- Systems -->
-	<script src="../js/ecs/systems/line_render.js"></script>
+	<script src="../js/ecs/systems/point_dynamic_tick.js"></script>
+	<script src="../js/ecs/systems/plane_render.js"></script>
 	<script src="../js/ecs/systems/point_render.js"></script>
 	<!-- Src -->
 	<script src="../js/window/window.js"></script>

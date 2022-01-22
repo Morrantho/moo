@@ -1,6 +1,4 @@
-const MU_ECS_COMPONENT_COLOR=mu_ecs_component_create({
-	r:255,
-	g:255,
-	b:255,
-	a:255
+const MU_ECS_COMPONENT_COLOR=mu_ecs_component_create(
+{
+	color:{r:0,g:0,b:0,a:0}
 });

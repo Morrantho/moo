@@ -3,7 +3,7 @@ const mu_request_frame=window.requestAnimationFrame;
 let mu_canvas=0;
 let mu_canvas_context=0;
 /* Physics ticks per second. */
-const mu_dt=1000/30;
+const mu_dt=1000/60;
 let mu_last_time=0;
 let mu_frame_time=0;
 let mu_elapsed_time=0.0;
@@ -13,11 +13,14 @@ let mu_state=1;
 ******************************************************************************/
 function mu_test()
 {
-	let point1=mu_ecs_entity_point_create(50,50);
-	let point2=mu_ecs_entity_point_create(200,200);
-	let point3=mu_ecs_entity_point_create(400,400);
-	let line1=mu_ecs_entity_line_create(point1,point2,1);
-	let line2=mu_ecs_entity_line_create(point2,point3,4);
+	let point1=mu_ecs_entity_point_static_create(50,50,16);
+	let point2=mu_ecs_entity_point_static_create(200,200,12);
+	let point3=mu_ecs_entity_point_static_create(400,400,8);
+
+	let plane1=mu_ecs_entity_plane_create(point1,point2,4);
+	let plane2=mu_ecs_entity_plane_create(point2,point3,2);
+
+	let pointd1=mu_ecs_entity_point_dynamic_create(500,50,16);
 }
 /******************************************************************************
 * Where everything starts. Called when the browser feels like it.

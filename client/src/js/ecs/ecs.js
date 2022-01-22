@@ -56,7 +56,8 @@ const mu_ecs_component_toggle=(entity,component)=>
 		{
 			let system_mask=mu_ecs_systems[i][j].mask;
 			let result_mask=entity_mask&system_mask;
-			mu_ecs_systems[i][j].entities[entity]=(result_mask==entity_mask||result_mask==system_mask)&&result_mask!=1;
+			// mu_ecs_systems[i][j].entities[entity]=(result_mask==entity_mask||result_mask==system_mask)&&result_mask!=1;
+			mu_ecs_systems[i][j].entities[entity]=result_mask==system_mask;
 		}
 	}
 }
