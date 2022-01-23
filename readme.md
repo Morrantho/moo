@@ -6,7 +6,12 @@ Todo(Checklist Roadmap):
 ---
 - [ ] Get Physics working  
 - [ ] Design Main Character
-- [ ] Design UI
+- [ ] Design Page UI
+- [ ] Design Game HUD
+
+Physics Example:
+---
+![](./client/src/assets/physics.gif)
 
 Character Design Ideas:
 ---
