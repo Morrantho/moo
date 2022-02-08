@@ -1,0 +1,25 @@
+Vector:
+Dot: ax*bx+ay*by
+Cross: ax*by-ay*bx
+Mag: sqrt(ax*ax+by*by)
+MagSq: ax*ax+by*by
+Norm: a*1/mag(a)
+Perp: -a.y,a.x
+SetMag: Norm(a)*n
+Limit: MagSq(a) < n*n ? a : SetMag(a,n)
+Dist: Mag(b-a)
+
+Position Verlet:
+T=P
+P=P-(P-V)+A
+V=T
+
+Newton:
+F=MA
+A=F/M
+
+Hookes Law:
+fs=-kx
+fs=spring force
+k=spring constant
+x=spring compression
