@@ -23,3 +23,8 @@ fs=-kx
 fs=spring force
 k=spring constant
 x=spring compression
+
+Drag Force:
+
+f=-^v(k1|^v|+k2|^v|^2)
+f=-norm(v)*k1*norm(mag(v))+k2*norm(mag(v))*norm(mag(v))

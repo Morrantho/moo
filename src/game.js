@@ -10,8 +10,8 @@ Game=class
 	{
 		/* Logic Here */
 		let e=new Mu.Phys.Emitter(400,400);
-		e.PushFunction(Mu.Phys.Particle.DynamicFire);
-		e.SetInfinite();
+		e.PushFunction(Mu.Phys.Particle.Fire);
+		e.SetRepetitions(1000);
 		e.SetFrequency(0); /* <-- this is expensive, dont do it often. */
 	}
 };
